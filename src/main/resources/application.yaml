@@ -1,0 +1,61 @@
+server:
+  port: 3034
+spring:
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  cache:
+    type: redis
+
+  redis:
+    host: localhost
+    port: 6379
+
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  level:
+    org.hibernate.type: trace
+
+
+jwt:
+  header: Authorization
+  secret-key: and0LXRSLkfd3nfls8324sdflsk2fjlc3QtYWxqamFiYWVnaS1qd3QtdGVzdC1hbGpqYWJhZWdpLWp3dC10ZXN0LWFsamphYmFlZ2ktand0LXRlc3QtYWxqamFiYWVnaS1qd3QtdGVzdC1hbGpqYWJhZWdpLWp3dC10ZXN0LWFsamphYmFlZ2ktaadksa3nd0LXRlc3QtYWxqamFiYWVnaS1qd3QtdGVzdCsdfksjfl31hbGpqYWJhZWdp
+  access-exp: 3600000
+  refresh-exp: 2592000000
+  prefix: Bearer
+
+oauth2:
+  kakao:
+    infoUrl: https://kapi.kakao.com
+    baseUrl: https://kauth.kakao.com
+    clientId: 7f45482dba6613110502c1820785d3af #rest
+    redirectUri: http://localhost:3000/auth/kakao/callback
+    secretKey: d268b9d07e1c006be474f4ca9139b50a #admin
+
+aws:
+  access-key: AKIA44BVP7AFQTRPADX7
+  secret-key: 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
+  region: ap-northeast-2
+  bucket: kkokkomak
+  url: https://kkokkomak.s3.ap-northeast-2.amazonaws.com/
